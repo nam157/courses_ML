@@ -3,4 +3,7 @@
 -  Mã hóa các dữ liệu (Categorical Encoding)
 -  Xử lý outlier và scale data 
 ### Thuật toán Hồi quy
-- Liear Regression
+- Linear Regression
+- Ridge Regression
+- Lasso Regression
+
