@@ -1,3 +1,14 @@
+### Gradient Descent
+- Batch Gradient Descent:
+  - Dùng tất cả dữ liệu trong training set cho mỗi lần thực hiện bước tính
+đạo hàm
+- Stochastic Gradient Descent:
+  - Chỉ dùng một dữ liệu ngẫu nhiên (mẫu) trong training set cho mỗi lần thực hiện
+bước tính đạo hàm
+- Mini-batch gradient descent:
+  - Dùng một phần dữ liệu trong training set cho mỗi lần thực hiện
+bước tính đạo hàm.
+
 ### Bias and Variance
 - Bias: nghĩa là độ lệch, biểu thị sự chênh lệch giữa giá trị trung bình mà mô hình dự đoán và giá trị
 thực tế của dữ liệu
@@ -16,4 +27,5 @@ phân tán rộng dẫn đến việc ra giá trị thực tế. => Ta mong mu�
 - Linear Regression
 - Ridge Regression
 - Lasso Regression
+### Classification
 
