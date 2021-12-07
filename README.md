@@ -1,13 +1,13 @@
 ### Gradient Descent
 - Batch Gradient Descent:
   - Dùng tất cả dữ liệu trong training set cho mỗi lần thực hiện bước tính
-đạo hàm
+đạo hàm (n)
 - Stochastic Gradient Descent:
-  - Chỉ dùng một dữ liệu ngẫu nhiên (mẫu) trong training set cho mỗi lần thực hiện
-bước tính đạo hàm
+  - Chỉ dùng một dữ liệu ngẫu nhiên trong training set cho mỗi lần thực hiện
+bước tính đạo hàm (1)
 - Mini-batch gradient descent:
   - Dùng một phần dữ liệu trong training set cho mỗi lần thực hiện
-bước tính đạo hàm.
+bước tính đạo hàm. (1-n)
 
 ### Bias and Variance
 - Bias: nghĩa là độ lệch, biểu thị sự chênh lệch giữa giá trị trung bình mà mô hình dự đoán và giá trị
