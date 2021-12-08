@@ -28,7 +28,8 @@
 
 #### Regularization
 - Early Stopping: Là một kĩ thuật giúp model khi gặp vấn đề overfit, Nó sẽ đánh giá trên hàm mất mát thường thì giá trị hàm mất mát sẽ giảm dần khi tăng số vòng lặp lên. Bây giờ chia ra training  và validation. Trong khi huấn luyện, ta tính toán cả training error và validation error, nếu training error vẫn có xu hướng giảm nhưng validation error có xu hướng tăng lên thì ta dừng thuật toán
-                                 ![Screenshot 2021-12-09 001224](https://user-images.githubusercontent.com/72034584/145252818-4890f677-ca1e-4c40-b983-bfcd7e240701.png)
+
+                ![Screenshot 2021-12-09 001224](https://user-images.githubusercontent.com/72034584/145252818-4890f677-ca1e-4c40-b983-bfcd7e240701.png)
 
 - Thêm số hạng (L1,L2)
 
