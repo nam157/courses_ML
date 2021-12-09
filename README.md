@@ -1,13 +1,21 @@
-## Kiến thức thông thường
+## Basic knowledge
+#### Probability & Statistical in Machine Learning
+[Probability & Statistical](https://towardsdatascience.com/probability-vs-statistics-for-data-science-and-machine-learning-84f00bf67ce1)
+- Trong xác suất, chúng ta sẽ bắt đầu với model mô tả khả năng của sự kiện sẽ xảy ra. Sau đó dựa đoán khả năng xảy ra của sự kiện. Tóm lại có thể hiểu rằng là xây dựng 1 cái model dự đoán khả năng xảy ra trong tương lại dựa trên mô hình không có dữ liệu thực tế
+- Trong thông kê thì tương phản với xác suất, thông kê chúng ta sẽ suy luận từ data hoặc mô hình dự trên dữ liệu thực tế để quan sát 
+- Xác suất là đi từ model sang data trong khi Thông kê là đi từ data sang model 
+
+     ![image](https://user-images.githubusercontent.com/72034584/145321985-4e237c87-27fa-4053-96a1-5d7a079c046c.png)
+
 #### Supervised and Unsupervised
-- Supervised là dữ liệu đầu vào luôn được gán nhãn, và nhãn đây có thể hiểu là đầu ra mong muốn
-- Unsupervised là dữ liệu đầu vào không được gán nhãn
+- **Supervised** là thuật toán dựa đoán đầu ra của 1 hoặc nhiều mới dựa vào cặp (đầu vào, đầu ra) đã biết trước. Một tập biến đầu vào X= {X1,X2,...Xn} và tập đầu ra tương ứng Y = {Y1,Y2,...,Yn}
+- **Unsupervised** là ngược lại với supervised chúng ta không biết kết quả đầu ra mà chỉ biết các vector đặc trưng đầu vào 
 #### Machine Learning and Deep Learning
-- Machine Learning là tính năng của AI, cho phép các chuyên gia đào tạo cho AI để nó nhận biết các mẫu dữ liệu và dự đoán
-- Deep Learning là kỷ thuật nhỏ của ML, cho phép máy có thể tự đào tạo chính mình, và các phép tính toán học phức tạp hơn
+- **Machine Learning** là tính năng của AI, cho phép các chuyên gia đào tạo cho AI để nó nhận biết các mẫu dữ liệu và dự đoán
+- **Deep Learning** là kỷ thuật nhỏ của ML, cho phép máy có thể tự đào tạo chính mình, và các phép tính toán học phức tạp hơn
 #### Supervised: Regression, Classification, DNN
-- Regression: Kết quả đầu ra chính ra là dữ liệu liên tục
-- Classification: Kết quả đầu ra chính là dữ liệu rời rạc (nhãn hoặc xác suất nhãn)
+- **Regression**: Kết quả đầu ra chính ra là dữ liệu liên tục
+- **Classification**: Kết quả đầu ra chính là dữ liệu rời rạc (nhãn hoặc xác suất nhãn)
 - Một thuật toán classification có thể dự đoán giá trị liên tục nhưng giá trị liên tục ở dạng xác suất đối với nhãn
 - Một thuật toán Regression có thể dự đoán giá trị rời rạc nhưng giá trị rời rạc với đại lương nguyên
 - DNN: Có thể là liên tục hoặc rời rạc (hoặc thuật toán Decision Tree)
@@ -15,12 +23,12 @@
   - Dự đoán Classification có thể đánh giá bằng độ chính xác (accuracy)
   - Dự đoán Regression có thể đánh giá bằng root mean squared error
 #### Unsupervised: Clustering,Auto Encoder Decoder, Word embedding
-- Clustering: nhiệm vụ là chia dữ liệu vào cũng 1 nhóm, và các điểm trong nhóm đó giống nhau và khác với điểm dữ liệu trong nhóm khác.Về cơ bản là nó là tập hợp các đối tượng trên cơ sở giống nhau và không giống nhau giữa chúng
-- Auto Encoder Decoder: Autoencoder là một mô hình mạng nơ-ron có thể được sử dụng để học cách biểu diễn dữ liệu thô được nén. Một bộ Autoencoder có 2 phần đó là encoder và decoder sub-models. Encoder cố gằng nén đầu vào và Decoder cố gắng tái tạo đầu vào [https://machinelearningmastery.com/autoencoder-for-classification/]
+- **Clustering**: nhiệm vụ là chia dữ liệu vào cũng 1 nhóm, và các điểm trong nhóm đó giống nhau và khác với điểm dữ liệu trong nhóm khác.Về cơ bản là nó là tập hợp các đối tượng trên cơ sở giống nhau và không giống nhau giữa chúng
+- **Auto Encoder Decoder**: Autoencoder là một mô hình mạng nơ-ron có thể được sử dụng để học cách biểu diễn dữ liệu thô được nén. Một bộ Autoencoder có 2 phần đó là encoder và decoder sub-models. Encoder cố gằng nén đầu vào và Decoder cố gắng tái tạo đầu vào [https://machinelearningmastery.com/autoencoder-for-classification/]
 
 #### Train set/ validation set/ test set
-- Train set: là tập dữ liệu để chạy thuật toán
-- Validation set: Là tập dữ liệu được dùng để hiệu chỉnh các tham số, lựa chọnđặc trưng và quyết định các thay đổi liên quan đến thuật toán học. Đôi khi, nócòn được gọi là tập kiểm định chéo.
+- **Train set**: là tập dữ liệu để chạy thuật toán
+- **Validation set**: Là tập dữ liệu được dùng để hiệu chỉnh các tham số, lựa chọnđặc trưng và quyết định các thay đổi liên quan đến thuật toán học. Đôi khi, nócòn được gọi là tập kiểm định chéo.
 - Test set:  Là tập dữ liệu dùng để đánh giá chất lượng của thuật toán học,nhưng không được dùng để quyết định các thay đổi liên quan đến thuật toán họchay các tham số.
 
 #### Cross-validation
@@ -31,9 +39,7 @@
 
      ![Screenshot 2021-12-09 001224](https://user-images.githubusercontent.com/72034584/145318350-bebddcca-e9de-47d8-ac8e-48ad67311299.png)
 
-
-
-- Thêm số hạng (L1,L2)
+- Thêm số hạng (L1,L2): 
 
 #### Gradient Descent
 - Batch Gradient Descent:
