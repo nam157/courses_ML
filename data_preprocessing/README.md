@@ -33,7 +33,7 @@ Một số giả định của mô hình hồi quy tuyến tính:
       - Nó có thể là phần lớn của dữ liệu phần đầu
       - Các quan sát bị loại trừ có thể cung cấp thông tin quan trọng
       - Mô hình trong sản xuất, mô hình sẽ không biết các xử lý dữ liệu bị khuyết
-- **Gán giá trị trung bình-trung vị **
+- **Gán giá trị trung bình - trung vị**
   - Nếu dữ liệu bị khuyết hoàn toàn ngẫu nhiên MCAR
   - Các quan sát bị khuyết có thể trong giống như phần lớn các quan sát trong biến 
   - Nếu dữ liệu là phân phối chuẩn thì mean và median sẽ xấp xỉ nhau, do đó thay giá trị nào cũng được
