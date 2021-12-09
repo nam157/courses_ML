@@ -29,7 +29,9 @@
 #### Regularization
 - Early Stopping: Là một kĩ thuật giúp model khi gặp vấn đề overfit, Nó sẽ đánh giá trên hàm mất mát thường thì giá trị hàm mất mát sẽ giảm dần khi tăng số vòng lặp lên. Bây giờ chia ra training  và validation. Trong khi huấn luyện, ta tính toán cả training error và validation error, nếu training error vẫn có xu hướng giảm nhưng validation error có xu hướng tăng lên thì ta dừng thuật toán
 
-                ![Screenshot 2021-12-09 001224](https://user-images.githubusercontent.com/72034584/145252818-4890f677-ca1e-4c40-b983-bfcd7e240701.png)
+     ![Screenshot 2021-12-09 001224](https://user-images.githubusercontent.com/72034584/145318350-bebddcca-e9de-47d8-ac8e-48ad67311299.png)
+
+
 
 - Thêm số hạng (L1,L2)
 
@@ -49,7 +51,7 @@ bước tính đạo hàm. (1-n)
 thực tế của dữ liệu
 - Variance: nghĩa là phương sai, biểu thị độ phân tán của các giá trị mà mô hình dự đoán so với giá
 trị thực tế.
-![1_Y-yJiR0FzMgchPA-Fm5c1Q](https://user-images.githubusercontent.com/72034584/143260447-50f2e59e-892c-415f-8267-56485d1b0d22.jpeg)
+      ![1_Y-yJiR0FzMgchPA-Fm5c1Q](https://user-images.githubusercontent.com/72034584/143260447-50f2e59e-892c-415f-8267-56485d1b0d22.jpeg)
 
 Giá trị thật dữ liệu (ground truth) ở giữa tâm các đường tròn. Các dấu X là các giá trị dự đoán. Ta
 thấy nếu high bias thì giá trị dự đoán rất xa tâm. Tuy nhiên nếu high variance thì các giá trị dự đoán
