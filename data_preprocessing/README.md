@@ -4,7 +4,7 @@
   - MNAR: Dữ liệu khuyết không phải ngẫu nhiên nếu có 1 cơ chế hoặc 1 lý do nào đó khiến các giá trị bị khuyết đưa vào tập dữ liệu.
   - MCAR: Dữ liệu khuyết hoàn toàn là ngẫu nghiên, với xác suất thiếu là như nhau.
   - MCR: Dữ liệu khuyết ngẫu nhiên, Xác suất của một quan sát bị thiếu phụ thuộc vào thông tin sẵn có, nó độc lập với các biến khác trong tập dữ liệu.
--**Nhãn hiểm (rare label)**: là những giá trị được chọn trong một nhóm các hạng mục (nhãn). Các nhãn thường xuất hiện trong tập dữ liệu có tần suất khác nhau. Nhãn hiểm có thể thêm nhiều thông tin hoặc không thêm thông tin. 
+- **Nhãn hiểm (rare label)**: là những giá trị được chọn trong một nhóm các hạng mục (nhãn). Các nhãn thường xuất hiện trong tập dữ liệu có tần suất khác nhau. Nhãn hiểm có thể thêm nhiều thông tin hoặc không thêm thông tin. 
   - Các nhãn hiểm trong hạng mục có xu hướng gây ra overfitting, đặc biệt trong các thuật toán cây
   - Nhãn hiểm có thể xuất hiện trong  trainning set mà không xuất hiện trong test set gây ra overfitting cho tập training
   - Nhãn hiểm có thể xuất hiện trong tập test mà không xuất hiện trong tập training, như vậy, model sẽ không biết đánh giá nó như thế nào
@@ -163,11 +163,105 @@ Một số giả định của mô hình hồi quy tuyến tính:
      - Nếu 2 hạng mục khác nhau có cùng tần số xuất hiện trong tập dữ liệu, tức là chúng có số lượng quan sát giống nhau thì sẽ được thay thể bằng cùng 1 số: có thể mất thông tin có giá trị  
   - Thư viện hỗ trợ: Pandas,Featue-engine
 
+### XỬ LÝ OUTLIER
+- Trimming(Cắt tỉa)
+  - Loại bỏ các điểm outlier ra khỏi tập dữ liệu
+  - Ưu điểm: Nhanh,gọn
+  - Nhược điểm: Các outlier có thể là những điểm thông tin rất hữu ích, Nếu như giá trị outlier quá nhiều và xóa nó đi sẽ mất phần lớn dữ liệu
+  - Quan trọng: Outlier cần phát hiện và chỉ loại bỏ nó trong tập trainning và không loại khỏi tập Test 
+- Censoring/Capping(Kiểm duyệt/Giới hạn)
+  - Giới phạm vi max/mon của phân phối
+  - Có thể giới hạn bằng cách: Tùy ý,IQR,phép xấp xỉ GAUSS,Quantile
+  - Ưu điểm là không loại bỏ dữ liệu
+  - Hạn chế là làm sai lệch phân phối và mối quan hệ giữa các biến 
 ### CHUẨN HÓA DỮ LIỆU (Scale Data)
 - **Co giãn Min-Max(MinMaxScaling)**
+  - Co giãn về 0 đến 1
+  - Không tập trung mean ở 0
+  - Phương sai thay đổi trên các biến
+  - Có thể không duy trì hình dạng phân phối ban đầu
+  - Nhạy với outlier
 - **Chuẩn tắc hóa(Standardisation)**
+  - Chuẩn tắc hóa gồm căn biến ở 0 và phương sai thành 1
+  - Z = (X - mean_x)/std
+  - Mean là 0 và độ lệch chuẩn là 1
+  - Duy trì hình dạng phân phối ban đầu
+  - Gía trị min/max của biến khác nhau thay đổi
+  - Duy trì outlier
 - **Chuẩn hóa trung bình(Mean normalisation)**
+  - Co dãn dữ liệu về phạm vị -1 đến 1
+  - tập trung giá trị mean ở 0
+  - Có thể thay đổi hình dạng phân phối ban đầu
+  - Duy trì outlier
+  - X_scale = (X - mean_x) / (max_x - min_x)   
 - **Co giãn về giá trị lớn nhất tuyệt đổi(MaxAbsScaling)**
+  - X_scale = X / abs(Max(X)) 
+  - Không tập trung ở 0
+  - Phương sai thay đổi
+  - Không giữ hình dạng phân phối ban đầu
+  - Nhạy với outlier
+  - Min/Max từ -1 đến 1
 - **Co giãn về trung vị và phân vị (RobustScaling)**
+  - X_scaled = X - median_X / IQR
+  - Căn giữa ở 0
+  - Phương sai thay đổi trên mỗi biến
+  - Làm thay đổi hình dạng phân phối ban đầu
+  - Outlier mạnh mẽ 
 - **Chuẩn hóa độ dài vector đơn vị**
+  - Co dãn các vector đặc trưng có chuẩn là 1
+  - Co dãn về vector đơn vị bằng cách chia cho khoảng cách Manhattan (l1) hoặc khoảng cách euclid (l2) 
 ### LỰA CHỌN ĐẶC TRƯNG (Select feature)
+- Lựa chọn đặc trưng theo phương pháp gói
+  - Dùng thuật toán học máy để dự đoán, lựa chọn tập hợp con đặc trưng tối ưu. Về bản chất thì, phương pháp gói xây dựng một thuật toán học máy cho từng tập hợp con đặc trưng mà chúng đánh giá, sau đó chọn tập hợp con của biến tạo ra thuật toán có chất lượng cao nhất. 
+  -  Lựa chọn đặc trưng theo phương pháp văn xuôi
+     - Huấn luyện mô hình cho từng đặc trưng trong tập dữ liệu và lựa chọn đặc trưng mở đầu khiến mô hình hoạt động tốt nhất theo tiêu chí đánh giá
+     - Nó tạo ra mô hình cho tất cả các tổ hợp đặc trưng ở bước trước và đặc trưng thứ 2, có nghĩ là thêm mỗi lần 1 đặc trưng vào các đặc trưng ở bước trước cho khi xác định dừng
+     - Về lý thuyết, các mô hình có nhiều đặc trưng hơn sẽ hoạt động tốt hơn. Thuật toán sẽ tiếp tục thêm đặc trưng mới cho đến khi đáp ứng tiêu chí, ngưỡng nhất định nào đó
+     - Phép đo chất lượng mô hình có thể ROC-AUC hoặc R2 tùy người xác định nó  
+  -  Lựa chọn đặc trưng theo phương pháp ngược
+     - Huấn luyện mô hình với tất cả đặc trưng trong tập dữ liệu và xác định chất lượng mô hình
+     - Sau đó, huấn luyện mô hình trên tất cả tổ hợp có thể có của tất cả đặc trưng -1, loại bỏ đặc trưng trả về mô hình có chất lượng cao khi đặc trưng loại bỏ đi
+     - Thuật toán dừng tùy thuộc tiêu chí dừng
+     - Lựa chọn đặc trưng theo phương pháp ngược gọi là thủ tục tham lam vì nó đánh giá tất cả tổ hợp đặc trưng n, rồi n-1, rồi n-2,....Do đó, nó rất khó tính toán và thấm chí không khả thi nếu không gian đặc trưng lớn  
+- Lựa chọn đặc trưng theo phương pháp lọc
+  - Loại bỏ các đặc trưng trùng lặp, đặc trưng không đổi, đặc trưng gần như không đổi
+    - Các đặc trưng thường có giá trị trùng lặp về cở bản là giống nhau, như vậy sẽ sinh ra dừ thừa dữ liệu gây ra overfit, vì vậy chúng ta cần loại bỏ nó giúp mô hình đơn giản hơn
+  - Loại bỏ các đặc trưng tương quan
+    - Tương quan là phép đo lượng tuyến tính của 2 biến ngẫu nhiên, mức độ tương cao càng cao thì tuyến tính càng cao rất phù hợp cho các mô hình tuyến tính
+    - Tuy nhiên, nếu 2 biến dự báo có tương cao, thì bản chất, chúng sẽ cung cấp thông tin dư thừa thông tin về mục tiêu, vì chúng ta có thể dự đoán biến tiêu chỉ cần 1 biến dự báo
+    - Để tạo mô hình học máy tốt, chúng ta cần tìm những biến có tương quan cao với biến mục tiêu nhưng không tương với biến khác. Nói cách khác là, chúng ta muốn yếu tố dự đoán tương với mục tiêu chứ không tương lại với nhau
+  - Lựa chọn các đặc trưng dựa trên anova
+    - Anova là kiểm định thống kê đánh giá giả thuyết có 2 hoặc nhiều mẫu có giá trị trung bình. Anova đưa ra một số giả định về các mẫu mà chúng ta đang đánh giá - chúng độc lập, được phân bố chuẩn - đồng nhất về phương sai. 
+- Lựa chọn đặc trưng theo phương pháp nhúng
+  - Lựa chọn đặc trưng theo mô hình hồi quy (Lasso Regression)
+    - Huấn luyện mô hình hồi quy tuyến tính và thêm yếu tố regularization (l1). Và có trọng số W tìm được có xu hướng rất nhiều phần tử không. Các thành phần w khác 0 tương đương với những đặc trưng quan trọng đóng góp vào việc dự đoán đầu ra. Các đặc trưng tương với w = 0 được coi ít quan trọng. Chính vì vậy giúp lựa chọn đặc trưng 
+  - Lựa chọn đặc trưng loại bỏ đặc trưng bằng đề quy (Recursive Feature Elimination)
+    - Xếp mức độ quan trọng của các đặc trưng theo mô hình
+    - Loại bỏ các đặc trưng ít quan trong nhất và xây dựng mô hình với các đặc trưng còn lại
+    - Tính toán phép đo lường chất lượng:roc-auc, mse, rmse,....
+    - Nếu phép đo giảm nhiều hơn ngưỡng được thiết lập thì đặc trưng đó quan trọng và giữ lại, nếu không , xóa
+    - Lặp lại các bước 2,3,4 cho đến khi các đặc trưng đc đánh giá
+    => Thư viện hỗ trợ: Feature-engine
+  - Lựa chọn đặc trưng thêm đặc trưng bằng đệ quy (Recursive Feature Addition)
+    -  Xếp mức độ quan trọng của các đặc trưng theo mô hình
+    -  Xây dựng mô hình chỉ 1 đặc trưng, đặc trưng quan trọng nhất, đánh giá chất lượng
+    -  Thêm một đặc trưng - đặc trưng quan trọng nhất và xây dựng mô hình với đặc trưng ở bước trước
+    -  Tính toán các phép đo lường
+    -  Nếu phép đo lường tăng nhiều hơn ngưỡng đc thiết lập thì đặc trưng đó giữ lại còn không xóa
+    -  Lặp lại các bước trên khi nào đi qua hết các đặc trưng
+    => Thư viện hỗ trợ: Feature-engine
+  - Xóa trộn ngẫu nhiên (Feature Shuffling): Là hoán vị các giá trị đặc trưng tại 1 thời điểm đó và đo lường mức độ hoán vị (hoặc xóa trộn các giá trị của nó) làm giảm độ chính xác 
+    - Xây dựng mô hình học máy và lưu trữ phép đo lường
+    - Xáo trộn 1 đặc trưng và đưa ra dự đoán mới sử dụng mô hình trước đó
+    - Xác định chất lượng của dự đoán này
+    - Xác định thay đổi về chất lượng của dự đoán với các đặc trưng đã xáo trộn với đặc trưng ban đầu.
+    - Lặp lại cho từng đặc trưng 
+
+
+
+
+
+
+
+
+
