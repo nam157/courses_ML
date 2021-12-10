@@ -1,5 +1,5 @@
 ## Basic knowledge
-#### Probability & Statistical in Machine Learning
+#### Probability & Statistics in Machine Learning
 [Probability & Statistical](https://towardsdatascience.com/probability-vs-statistics-for-data-science-and-machine-learning-84f00bf67ce1)
 - Trong xác suất, chúng ta sẽ bắt đầu với model mô tả khả năng của sự kiện sẽ xảy ra. Sau đó dựa đoán khả năng xảy ra của sự kiện. Tóm lại có thể hiểu rằng là xây dựng 1 cái model dự đoán khả năng xảy ra trong tương lại dựa trên mô hình không có dữ liệu thực tế
 - Trong thông kê thì tương phản với xác suất, thông kê chúng ta sẽ suy luận từ data hoặc mô hình dự trên dữ liệu thực tế để quan sát 
@@ -80,7 +80,31 @@ Công thức chung : Lreg(θ) = L(θ) + λR(θ)
 
 - F1-Score: Khi xây dựng model thì ta luôn Precision và Recall càng cao càng tốt tuy nhiên trong thực tế thì xây dựng model thì hay vấn để Precision cao thì Recall thấp và ngược lại vì vậy đề lựa chọn tốt thì ta quan tâm F1, F1 sẽ dung hòa 2 cái này lại và lựa chọn model căn cứ và F1 để chọn. F1 càng cao thì càng tốt. Khi lý tưởng nhất thì F1 = 1 (khi Recall = Precision=1).=> Là số dung hòa Recall và Precision giúp ta có căn cứ để lựa chọn model. F1 càng cao càng tốt
 
+
+#### Overfitting and Underfitting
+![image](https://user-images.githubusercontent.com/72034584/145583551-13af0e08-1f58-4351-aa26-b63dd5f396c8.png)
+
+- Overfitting
+  - Là trường hợp quá fit với tập dữ liệu trainning có nghĩa là những điểm nhiễu trong tập dữ liệu training cũng học, trường hợp overfit xảy ra khi tập dữ liệu training quá nhỏ hoặc model quá cao.
+  - Chi phí lỗi training error thấp mà validation error/test error quá cao thì điều có nghĩa tập dữ liệu overfit
+  - Để khắc phục vấn đề này thì có thể sử dụng: regurlarization, Validation,...
+
+- Underfitting
+  - Là trường hợp mô hình chưa khái quá hóa được dữ liệu traning cũng như chưa khái quan hóa tập dữ liệu mới
+  - Một mô hình học máy không phù hợp không phải là một mô hình phù hợp và sẽ hiển nhiên vì nó sẽ có hiệu suất kém trên dữ liệu đào tạo.
+  - Hoặc mô hình quá nhỏ
+  - Chi phí lỗi traning error và validation error/test error đều cao thì có nghĩa là model đang bị underfit
+
+
 #### Gradient Descent
+- Là 1 thuật toán tối ưu tổng quát tốt nhất, có khả năng tìm nghiệm tối ưu cho rất nhiều bài toán. Ý tưởng chung, là liên tục điều chỉnh tham số để cực tiêu hóa chí phí. VD: Ta đứng trên 1 đỉnh núi và muốn xuống núi nhanh thì chúng ta phải đi xuống núi theo hướng dốc nhất.
+
+![Screenshot 2021-12-10 210101](https://user-images.githubusercontent.com/72034584/145585739-50e2e882-3a31-4db8-8f34-2673d77fd30b.jpg)
+
+- Từ VD đó ta thì bài toán GD cũng thực hiện như vậy, nó gradient cục bộ của hàm chi phí theo vector tham số, rồi đi ngược hướng với gradient đó, khi GD bằng 0 tức đó là điểm cực tiểu
+- Trong GD có tham số rất qua trọng đó learning rate hay còn gọi tốc độ học, cần phải điều chỉnh phù hợp
+- Và cần xem xét hàm lỗi hay không lỗi đều điều chỉnh số vòng lặp và learning rate cho phù hợp. Hàm lồi là hàm đoạn thắng nối 2 điểm bất kỳ trên 1 đường cong, không bao giờ cắt đường cong đó, điểm local cũng chính là điểm global 
+
 - Batch Gradient Descent:
   - Dùng tất cả dữ liệu trong training set cho mỗi lần thực hiện bước tính
 đạo hàm (n)
@@ -110,4 +134,6 @@ phân tán rộng dẫn đến việc ra giá trị thực tế. => Ta mong mu�
 - Ridge Regression
 - Lasso Regression
 ## Classification
-
+- Logistics Regression
+- SVM
+- Decision Tree
