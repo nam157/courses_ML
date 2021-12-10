@@ -106,9 +106,68 @@ Một số giả định của mô hình hồi quy tuyến tính:
   - Thư viện: Sklearn.impute.KNNImputer
 
 ### MÃ HÓA DỮ LIỆU (Encoding Data)
-- Mã hóa one-hot
-- Mã hóa hạng mục thường xuất hiện
-- 
+- **Mã hóa one-hot**
+  - Mã hóa one-hot là mã hóa từng hạng mục với biến boolean khác nhận các giá trị 0 hoặc 1
+  - Mã hóa K-1: tính đến việc sử dụng ít hơn 1 thứ nguyên nhưng vẫn biểu diễn được toàn bộ thông tin và tránh đưa vào thông tin dư thừa
+  - Mã hóa K: Khi xây dựng thuật toán cây, Khi lựa chọn đặc trưng bởi các thuật toán đệ quy, Khi muốn xác định mức quan trọng từng hạng mục riêng lẻ
+    - Ưu điểm:
+      - Dễ thực hiện
+      - Không đưa ra giả định về các hạng mục hoặc phân phối của biến hạng mục
+      - Giữa được thông tin của biến hạng mục
+      - Thích hợp mô hình tuyến tính 
+    - Nhược điểm: 
+      - Mở rộng không gian đặc trưng
+      - Nhiều biến giả có thể giống nhau, đưa ra thông tin dư thừa
+      - Không thêm được thông tin sau khi đã mã hóa
+   - Thư viện hỗ trợ: pandas,sklearn,feature-engine 
+- **Mã hóa hạng mục thường xuất hiện (OHE)**
+  - Khi cardinality cao và nhãn hiểm có thể chỉ xuất hiện trong tập training, gây ra overfit hoặc chỉ trong tập test và gặp rắc rối và tính toán khi không gian đặc trưng quá lớn
+  - Lựa chọn ngưỡng những hạng mục hay xuất hiện và mã hóa one-hot
+    - Ưu điểm:
+      - Dễ thực hiện, nhanh chóng
+      - Không mở rộng quá nhiều không gian đặc trưng
+      - Thích hợp mô hình tuyến tính
+    - Nhược điểm:
+      - Dễ mất thông tin khi bỏ qua nhãn đó
+      - Không thêm được thông tin sau khi đã mã hóa
+  - Thư viện hỗ trợ: Pandas, Sklearn,Feature-engine
+
+- **Mã hóa số nguyên**
+  - Thay thế các hạng mục thay thế bằng chữ số 0-n
+    - Ưu điểm:
+      - Dễ dàng triển khai
+      - Không mở rộng không gian đặc trưng 
+    - Nhược điểm: 
+      - Không thu thấp được thông tin về nhãn hạng mục
+      - Không thích hợp mô hình tuyến tính
+  - Thư viện hỗ trợ: Pandas, Sklearn,Feature-engine
+
+- **Mã hóa có mục tiêu**
+  - Tính đơn điệu
+    - Khi một giá trị của 1 biến tăng lên thì giá trị biến kia cũng vậy
+    - Khi 1 biến tăng, biến kia lại giảm
+  - Ưu điểm
+    - Nắm bắt thông tin trong hạng mục
+    - Tạo mối quan hệ đơn điệu của biến và mục tiêu đề phù hợp mô hình tuyến tính
+    - Không mở rộng không gian đặc trưng
+  - Nhược điểm:
+    - Dễ dẫn tới overfitting
+    - Khó kiểm định chéo với các thư viện hiện tại
+  - Thư viện hỗ trợ: Pandas, Featue-engine 
+- **Mã hóa đếm_tần số**
+  -  Chúng ta thay thế các hạng mục bằng số lượng quan sát hiện thị hạng mục trong tập dữ liệu, chúng ta cũng có thể thay thế hạn mục bằng tần số hoặc tỷ lệ phần trăm
+  -  Ưu điểm
+     - Đơn giản
+     - Không mở rộng không gian đặc trưng   
+  -  Nhược điểm 
+     - Nếu 2 hạng mục khác nhau có cùng tần số xuất hiện trong tập dữ liệu, tức là chúng có số lượng quan sát giống nhau thì sẽ được thay thể bằng cùng 1 số: có thể mất thông tin có giá trị  
+  - Thư viện hỗ trợ: Pandas,Featue-engine
 
 ### CHUẨN HÓA DỮ LIỆU (Scale Data)
+- **Co giãn Min-Max(MinMaxScaling)**
+- **Chuẩn tắc hóa(Standardisation)**
+- **Chuẩn hóa trung bình(Mean normalisation)**
+- **Co giãn về giá trị lớn nhất tuyệt đổi(MaxAbsScaling)**
+- **Co giãn về trung vị và phân vị (RobustScaling)**
+- **Chuẩn hóa độ dài vector đơn vị**
 ### LỰA CHỌN ĐẶC TRƯNG (Select feature)
