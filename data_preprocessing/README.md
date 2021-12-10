@@ -45,8 +45,22 @@ Một số giả định của mô hình hồi quy tuyến tính:
       - Làm thay đổi phân phối biến ban đầu
       - Làm thay đổi phương sai ban đầu
       - Làm thay đổi ma trận hiệp phương sai so với các biến còn lại trong tập dữ liệu
-- Gán giá trị bất kỳ
+- **Gán giá trị bất kỳ**
+  - Nếu dữ liệu không khuyết ngẫu nhiên MNAR
+    - Ưu điểm:
+      - Dễ thực hiện,nhanh chóng
+      - Nắm bắt được tầm quan trọng của của khuyết nếu có 
+    - Nhược điểm:
+      - Thay đổi phương sai và dạng phân phối ban đầu
+      - Nếu giá trị nằm ở cuối phân phối, nó che dấu hoặc tạo ra các giá trị outlier
+      - Cần cận thận chọn để không phải một giá trị bất kỳ nào quá giống mean/median
+      - Thay đổi ma trận hiệp phương sai so với các biến còn lại   
+
 - Gán giá trị ở cuối phân phối
+  - 
+
+
+
 - Gán giá trị hạng mục hay xuất hiện
 - Gán giá trị bị thiếu với một hạng mục mới
 - Gán giá trị ngẫu nhiên
