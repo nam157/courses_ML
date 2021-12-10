@@ -55,19 +55,55 @@ Một số giả định của mô hình hồi quy tuyến tính:
       - Nếu giá trị nằm ở cuối phân phối, nó che dấu hoặc tạo ra các giá trị outlier
       - Cần cận thận chọn để không phải một giá trị bất kỳ nào quá giống mean/median
       - Thay đổi ma trận hiệp phương sai so với các biến còn lại   
-
-- Gán giá trị ở cuối phân phối
-  - 
-
-
-
-- Gán giá trị hạng mục hay xuất hiện
-- Gán giá trị bị thiếu với một hạng mục mới
-- Gán giá trị ngẫu nhiên
-- Gán chỉ số khuyết dữ liệu
-- Gán theo KNN
-
-
+- **Gán giá trị ở cuối phân phối**
+  - Các dữ liệu không khuyết ngẫu nhiên MNAR
+    - Ưu điểm:
+      - Dễ thực hiện và nhanh chóng
+      - Nắm bắt được tầm quan trọng giá trị bị khuyết 
+    - Nhược điểm:
+      - Làm thay đổi dạng phân phối ban đầu và thay đổi phương sai , ma trận phương sai
+      - Làm che dấu các điểm outlier 
+- **Gán giá trị hạng mục hay xuất hiện**
+  - Dữ liệu khuyết hoàn toàn ngẫu nhiên MNAR
+  - Các giá trị bị khuyết hầu hết trong giống với mode
+  - Dữ liệu không quá 5%
+    - Ưu điểm:
+      - Dễ thực hiện, nhanh chóng
+    - Nhược điểm:
+      - Làm biến dạng mối quan hệ nhãn thường xuất hiện với biến khác
+      - Có gây overfit của nhãn thường xuất hiện nếu nhiều giá trị Na    
+- **Gán giá trị bị thiếu với một hạng mục mới**
+  - Phù hợp với nhiều giá trị bị khuyết 
+    - Ưu điểm:
+      - Dễ dàng thực hiện, nhanh chóng
+      - Không có giả định về dữ liệu
+    - Nhược điểm:
+      - Nếu số lượng Na quá nhỏ và bổ sung thêm hạng mục có thể gây overfit  
+- **Gán mẫu ngẫu nhiên**
+  - Gán mẫu ngẫu nhiên gồm việc 1 quan sát ngẫu nhiên từ vùng các quan sát có sẵn của biến và sử dụng giá trị được trích xuất ngẫu nhiên đó để điền NA. Trong gán mẫu ngẫu nhiên, càng có nhiều giá trị Na trong biến thì càng lấy nhiều quan sát ngẫu nhiên
+  - Giả định dữ liệu khuyết hoàn toàn ngẫu nhiên MCAR
+    - Ưu điểm:
+      - Dễ thực hiện,nhanh chóng
+      - Bảo toàn phương sai 
+    - Nhược điểm: 
+      - Tính ngẫu nhiên
+      - Mối quan hệ của các biến gán với biến khác sẽ bị ảnh hưởng
+      - Cần nhiều bộ nhớ triển khai, vì chúng ta cần lưu trữ tập huấn luyện ban đầu để trích xuất các giá trị thay Na 
+   - Dữ liệu bị khuyết không quá 5%
+   - Phù hợp cho mô hình tuyến tính vì nó không thay đổi phân phối ban đầu
+- **Gán chỉ số khuyết dữ liệu**
+  -  Dữ liệu không bị khuyết ngẫu nhiên, chúng ta có thể thay thể các giá trị quan sát mean,median,mode và gắn thêm cờ các giá trị bị khuyết đó, cờ sẽ là chỉ số nhị phân 0/1
+  -  Cặp kết hợp: Mean/median + chỉ số , mode + chỉ số, mẫu ngẫu nhiên + chỉ số
+  -  Dữ liệu bị khuyết ko có tính dự đoán
+      - Ưu điểm:
+        -  Dễ thực hiện
+        -  Nắm bắt được tầm quan trọng của khuyết
+      - Nhược điểm:
+        - Mở rộng không gian đặc trưng
+        - Biến ban đầu vẫn cần được gán để loại bỏ Na 
+- **Gán theo KNN**
+  - Các giá trị bị khuyết được ước tính như giá trị trung bình từ K neighbour (lân cận) gần nhất
+  - Thư viện: Sklearn.impute.KNNImputer
 
 ### MÃ HÓA DỮ LIỆU (Encoding Data)
 - Mã hóa one-hot
