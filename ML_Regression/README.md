@@ -4,7 +4,24 @@
 ### LINEAR REGRESSION
 - Linear regression là thuật toán supervised learning, ở đó có quan hệ đầu vào và đầu ra được mô tả bởi một hàm tuyến tính. 
 
+ - Phương trình tổng quát:  <img src="https://latex.codecogs.com/svg.latex?\inline&space;{\color{Blue}&space;\widehat{y}&space;=&space;f(x)&space;=&space;w_{1}*x_{1}&space;&plus;&space;w_{2}*x_{2}&space;&plus;&space;w_{3}*x_{3}&space;=&space;X^{T}*W}" title="{\color{Blue} \widehat{y} = f(x) = w_{1}*x_{1} + w_{2}*x_{2} + w_{3}*x_{3} = X^{T}*W}" />
+
+      - Trong đó <img src="https://latex.codecogs.com/svg.latex?\inline&space;{\color{Blue}&space;W&space;=&space;[w_{1},w_{2},w_{3}]^{T}}" title="{\color{Blue} W = [w_{1},w_{2},w_{3}]^{T}}" /> là trọng số. Đây chính là tham số chúng ta cần tìm kiếm. Và <img src="https://latex.codecogs.com/svg.latex?\inline&space;{\color{Blue}&space;X&space;=&space;[X_{1},X_{2},X_{3}]^{T}}" title="{\color{Blue} X = [X_{1},X_{2},X_{3}]^{T}}" /> là vector cột chứa thông tin giá trị đầu vào. 
+ 
+ - Các phương thức đo độ khớp của mô hình với tập dữ liệu: Mean squared error (MSE), Root mean squared error (RMSE), Mean absolute error (MAE): Đo lường khoảng cách giữa 2 vector, vector thực và vector dự đoán
+   - Công thức: <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;{\color{Blue}&space;MSE(X,W)&space;=&space;\frac{1}{m}&space;\sum_{i=1}^{m}&space;({y_{i}}&space;-&space;W^{T}&space;*&space;X_{i})^{2}}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;{\color{Blue}&space;MSE(X,W)&space;=&space;\frac{1}{m}&space;\sum_{i=1}^{m}&space;({y_{i}}&space;-&space;W^{T}&space;*&space;X_{i})^{2}}" title="{\color{Blue} MSE(X,W) = \frac{1}{m} \sum_{i=1}^{m} ({y_{i}} - W^{T} * X_{i})^{2}}" /></a>
+   - Công thức: <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;{\color{Blue}&space;RMSE(X,W)&space;=\sqrt{\frac{1}{m}&space;\sum_{i=1}^{m}&space;({y_{i}}&space;-&space;(W^{T}&space;*&space;X_{i}))^{2}}}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;{\color{Blue}&space;RMSE(X,W)&space;=\sqrt{\frac{1}{m}&space;\sum_{i=1}^{m}&space;({y_{i}}&space;-&space;(W^{T}&space;*&space;X_{i}))^{2}}}" title="{\color{Blue} RMSE(X,W) =\sqrt{\frac{1}{m} \sum_{i=1}^{m} ({y_{i}} - (W^{T} * X_{i}))^{2}}}" /></a>
+   - MSE,RMSE: Chính là chuẩn Euclid (L2)
+   - Công thức: <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;{\color{Blue}&space;MAE(X,W)&space;=&space;\frac{1}{m}&space;\sum_{i=1}^{m}&space;|{y_{i}}&space;-&space;(W^{T}&space;*&space;X_{i})|}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;{\color{Blue}&space;MAE(X,W)&space;=&space;\frac{1}{m}&space;\sum_{i=1}^{m}&space;|{y_{i}}&space;-&space;(W^{T}&space;*&space;X_{i})|}" title="{\color{Blue} MAE(X,W) = \frac{1}{m} \sum_{i=1}^{m} |{y_{i}} - (W^{T} * X_{i})|}" /></a>
+   - MAE: Chính là chuẩn Manhattan (L1)
+- Chỉ số chuẩn càng cao thì, chuẩn đó càng tập trung vào các giá trị lớn và bỏ qua các giá trị nhỏ, vì vậy RMSE lại nhạy cảm với dữ liệu outlier hơn MAE.
+- Tìm trọng số W:
+  - Phương trình pháp tuyến: Đạo hàm hàm mất mát theo W = 0: <img src="https://latex.codecogs.com/svg.latex?\inline&space;{\color{Blue}&space;\hat{w}&space;=&space;(X^{T}*X)^{-1}&space;*&space;X^{T}*y}" title="{\color{Blue} \hat{w} = (X^{T}*X)^{-1} * X^{T}*y}" />
+  - Gradient Descent: <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;{\color{Blue}&space;w&space;=&space;w&space;-&space;\alpha&space;*&space;\frac{dL(w)}{dw}}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;{\color{Blue}&space;w&space;=&space;w&space;-&space;\alpha&space;*&space;\frac{dL(w)}{dw}}" title="{\color{Blue} w = w - \alpha * \frac{dL(w)}{dw}}" /></a>
+- Hạn chế của Linear Regression là nhạy cảm với nhiễu, nó không biểu diễn được mô hình phức tạp 
 ### RIDGE REGRESSION
+- Hồi quy ridge chính là bản tiêu chuẩn của hồi quy tuyến tính, thêm tham số tiêu chuẩn vào hàm mất mát. 
+
 ### LASSO REGRESSION
 ### SUPPORT VECTOR MACHINE
 ### DECISION TREE
