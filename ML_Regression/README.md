@@ -20,9 +20,18 @@
   - Gradient Descent: <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;{\color{Blue}&space;w&space;=&space;w&space;-&space;\alpha&space;*&space;\frac{dL(w)}{dw}}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;{\color{Blue}&space;w&space;=&space;w&space;-&space;\alpha&space;*&space;\frac{dL(w)}{dw}}" title="{\color{Blue} w = w - \alpha * \frac{dL(w)}{dw}}" /></a>
 - Hạn chế của Linear Regression là nhạy cảm với nhiễu, nó không biểu diễn được mô hình phức tạp 
 ### RIDGE REGRESSION
-- Hồi quy ridge chính là bản tiêu chuẩn của hồi quy tuyến tính, thêm tham số tiêu chuẩn vào hàm mất mát. 
-
+- Hồi quy ridge chính là bản tiêu chuẩn của hồi quy tuyến tính, thêm tham số tiêu chuẩn vào hàm mất mát.
+- Tham số tiêu chuẩn có thể gọi lambda: Khi lambda = 0 thì bài toán sẽ trở về Hồi quy tuyến tính, Khi lambda càng lớn thì các trọng số w có xu hướng không quá lớn. Vì vậy giúp ta có thể kiểm soát được bài toán và tránh đầu ra không quá phụ thuộc bất kỳ đặc trưng nào. Tham số tiêu chuẩn cho Ridge là l2-norm.
+- Công thức: <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;{\color{Blue}&space;J(X,W)&space;=&space;\frac{1}{m}&space;\sum_{i=1}^{m}&space;({y_{i}}&space;-&space;(W^{T}&space;*&space;X_{i}))^{2}&space;&plus;&space;\lambda&space;\frac{1}{2}\sum_{1}^{m}(w_{i})^{2}}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;{\color{Blue}&space;J(X,W)&space;=&space;\frac{1}{m}&space;\sum_{i=1}^{m}&space;({y_{i}}&space;-&space;(W^{T}&space;*&space;X_{i}))^{2}&space;&plus;&space;\lambda&space;\frac{1}{2}\sum_{1}^{m}(w_{i})^{2}}" title="{\color{Blue} J(X,W) = \frac{1}{m} \sum_{i=1}^{m} ({y_{i}} - (W^{T} * X_{i}))^{2} + \lambda \frac{1}{2}\sum_{1}^{m}(w_{i})^{2}}" /></a>
+- Tìm trọng số W: Cũng có thể tìm kiếm bằng 2 cách:
+  -  Phương trình pháp tuyến: <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;{\color{Blue}&space;\hat{W}&space;=&space;(X^{T}*X&space;&plus;&space;\lambda&space;*&space;A)^{-1}&space;*&space;X^{T}y}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;{\color{Blue}&space;\hat{W}&space;=&space;(X^{T}*X&space;&plus;&space;\lambda&space;*&space;A)^{-1}&space;*&space;X^{T}y}" title="{\color{Blue} \hat{W} = (X^{T}*X + \lambda * A)^{-1} * X^{T}y}" /></a>
+  -  Gradient Descent: <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;{\color{Blue}&space;w&space;=&space;w&space;-&space;\alpha&space;*&space;\frac{dL(w)}{dw}}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;{\color{Blue}&space;w&space;=&space;w&space;-&space;\alpha&space;*&space;\frac{dL(w)}{dw}}" title="{\color{Blue} w = w - \alpha * \frac{dL(w)}{dw}}" /></a>
+- Trước khi thực hiện hồi rigde cần phải chuấn hóa dữ liệu
 ### LASSO REGRESSION
+- Hồi quy lasso chính là bản tiêu chuẩn của hồi quy tuyến tính, thêm tham số tiêu chuẩn vào hàm mất mát.
+- Tham số tiêu chuẩn có thể gọi lambda: Khi lambda = 0 thì bài toán sẽ trở về Hồi quy tuyến tính. Khi thêm tham số lambda thì w luôn có xu hướng bằng 0. Vì vậy model Lasso có thể coi là nén mô hình. Những trọng số bằng 0 tương ứng đặc trưng đó không được coi trọng còn trọng số khác 0 thì tương ứng quan trọng đóng góp cho kết quả đầu ra. Chuẩn dùng trong Lasso là chuẩn 1(l1-norm). 
+- Công thức: <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;{\color{Blue}&space;J(X,W)&space;=\frac{1}{m}\sum_{i=1}^{m}({y_{i}}-(W^{T}*X_{i}))^{2}&plus;\lambda\frac{1}{2}\sum_{1}^{m}|w_{i}|}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;{\color{Blue}&space;J(X,W)&space;=\frac{1}{m}\sum_{i=1}^{m}({y_{i}}-(W^{T}*X_{i}))^{2}&plus;\lambda\frac{1}{2}\sum_{1}^{m}|w_{i}|}" title="{\color{Blue} J(X,W) =\frac{1}{m}\sum_{i=1}^{m}({y_{i}}-(W^{T}*X_{i}))^{2}+\lambda\frac{1}{2}\sum_{1}^{m}|w_{i}|}" /></a>
+- Ta cũng có thể dễ thì thấy l1-regularization là đạo hàm của l1-norm không xác định tại 0 (Đạo hàm giá trị tuyến đối). Vì vậy thời gian tìm nghiệm sẽ mất thời gian hơn.
 ### SUPPORT VECTOR MACHINE
 ### DECISION TREE
 ### RANDOMFOREST
