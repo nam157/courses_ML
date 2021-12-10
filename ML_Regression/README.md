@@ -33,5 +33,13 @@
 - Công thức: <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;{\color{Blue}&space;J(X,W)&space;=\frac{1}{m}\sum_{i=1}^{m}({y_{i}}-(W^{T}*X_{i}))^{2}&plus;\lambda\frac{1}{2}\sum_{1}^{m}|w_{i}|}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;{\color{Blue}&space;J(X,W)&space;=\frac{1}{m}\sum_{i=1}^{m}({y_{i}}-(W^{T}*X_{i}))^{2}&plus;\lambda\frac{1}{2}\sum_{1}^{m}|w_{i}|}" title="{\color{Blue} J(X,W) =\frac{1}{m}\sum_{i=1}^{m}({y_{i}}-(W^{T}*X_{i}))^{2}+\lambda\frac{1}{2}\sum_{1}^{m}|w_{i}|}" /></a>
 - Ta cũng có thể dễ thì thấy l1-regularization là đạo hàm của l1-norm không xác định tại 0 (Đạo hàm giá trị tuyến đối). Vì vậy thời gian tìm nghiệm sẽ mất thời gian hơn.
 ### SUPPORT VECTOR MACHINE
+- Classification
+  - Tìm một mặt siêu mặt phẳng chia cắt hay phân tách ra 2 lớp hay nhiều lớp
+  - Cần tìm khoảng cách ngắn nhất từ điểm gần nhất mỗi lớp (Support vector) tới mặt phân chia là như nhau, khoảng cách này đường gọi biên/lề (margin)
+  - Margin càng rộng thì càng phân tách các lớp rõ ràng hơn trong tập dữ liệu hay tập dữ liệu mới
+  - Bài toán tối ưu SVM chính là tìm đường phân chia sao cho margin lớn nhất nhưng cũng hạn chế các vi phạm biên tức là các mẫu nằm trên hoặ trong mặt phằng
+  - Với cặp dữ liệu <a href="https://www.codecogs.com/eqnedit.php?latex={\color{Blue}&space;(X_{n},y_{n})}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?{\color{Blue}&space;(X_{n},y_{n})}" title="{\color{Blue} (X_{n},y_{n})}" /></a> bất kỳ tới mặt phẳng phân chia <a href="https://www.codecogs.com/eqnedit.php?latex={\color{Blue}&space;W^{T}X&space;&plus;&space;b}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?{\color{Blue}&space;W^{T}X&space;&plus;&space;b}" title="{\color{Blue} W^{T}X + b}" /></a> là 
+<a href="https://www.codecogs.com/eqnedit.php?latex={\color{Blue}&space;\frac{y_{n}(W^{T}X&plus;b)}{\left&space;\|&space;W&space;\right&space;\|_{2}}}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?{\color{Blue}&space;\frac{y_{n}(W^{T}X&plus;b)}{\left&space;\|&space;W&space;\right&space;\|_{2}}}" title="{\color{Blue} \frac{y_{n}(W^{T}X+b)}{\left \| W \right \|_{2}}}" /></a>
+
 ### DECISION TREE
 ### RANDOMFOREST
