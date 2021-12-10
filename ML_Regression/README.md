@@ -34,6 +34,9 @@
 - Ta cũng có thể dễ thì thấy l1-regularization là đạo hàm của l1-norm không xác định tại 0 (Đạo hàm giá trị tuyến đối). Vì vậy thời gian tìm nghiệm sẽ mất thời gian hơn.
 ### SUPPORT VECTOR MACHINE
 - Classification
+
+![image](https://user-images.githubusercontent.com/72034584/145607317-2b5444c7-6c2b-43f8-9373-f5ff89e67bf9.png)
+
   - Tìm một mặt siêu mặt phẳng chia cắt hay phân tách ra 2 lớp hay nhiều lớp
   - Cần tìm khoảng cách ngắn nhất từ điểm gần nhất mỗi lớp (Support vector) tới mặt phân chia là như nhau, khoảng cách này đường gọi biên/lề (margin)
   - Margin càng rộng thì càng phân tách các lớp rõ ràng hơn trong tập dữ liệu hay tập dữ liệu mới
