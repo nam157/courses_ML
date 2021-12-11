@@ -43,6 +43,30 @@
   - Bài toán tối ưu SVM chính là tìm đường phân chia sao cho margin lớn nhất nhưng cũng hạn chế các vi phạm biên tức là các mẫu nằm trên hoặ trong mặt phằng
   - Với cặp dữ liệu <a href="https://www.codecogs.com/eqnedit.php?latex={\color{Blue}&space;(X_{n},y_{n})}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?{\color{Blue}&space;(X_{n},y_{n})}" title="{\color{Blue} (X_{n},y_{n})}" /></a> bất kỳ tới mặt phẳng phân chia <a href="https://www.codecogs.com/eqnedit.php?latex={\color{Blue}&space;W^{T}X&space;&plus;&space;b}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?{\color{Blue}&space;W^{T}X&space;&plus;&space;b}" title="{\color{Blue} W^{T}X + b}" /></a> là 
 <a href="https://www.codecogs.com/eqnedit.php?latex={\color{Blue}&space;\frac{y_{n}(W^{T}X&plus;b)}{\left&space;\|&space;W&space;\right&space;\|_{2}}}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?{\color{Blue}&space;\frac{y_{n}(W^{T}X&plus;b)}{\left&space;\|&space;W&space;\right&space;\|_{2}}}" title="{\color{Blue} \frac{y_{n}(W^{T}X+b)}{\left \| W \right \|_{2}}}" /></a>
+  - Tìm w,b qua hàm đối ngẫu, điều KKT nó hơi đi sâu toán học sẽ rất khó hiểu với các điều kiệu ràng buộc
+  - Chúng ta sẽ tìm hiểu Biên cứng và Biên mềm (hard margin and soft margin)
+    - SVM thuần thường gọi là biên cứng, nếu chúng ta nghiệm ngắt bắt buộc các điểm dữ liệu phân tách phải nằm ngoài mặt phẳng phân tách không bị vi phạm biên có gọi là biên cứng
+    - Biên cứng nó chỉ hoạt động tốt trên dữ liệu linearly separable (phân tách tuyến tính), và nó rất nhảy cảm với các điểm outlier
+    - Biên mềm giải quyết các vấn đề của biến cứng, mục tiêu vẫn là tìm sự cân bằng những vẫn giữ được độ rộng càng lớn càng tốt, đồng thời hạn chế vi phạm biên.
+    - Có thể tìm w,b không có điều kiện ràng buộc, tìm nghiệm qua GD
+    - Hàm hinge loss là hàm liên tục, có đạo hàm mọi nơi trừ điểm có hoành độ bằng 1, có đạo hàm giống như RELU
+    - Công thức: <a href="https://www.codecogs.com/eqnedit.php?latex={\color{Orange}&space;L(w,b)&space;=&space;max(0,1&space;-&space;y_{n}*z_{n})}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?{\color{Orange}&space;L(w,b)&space;=&space;max(0,1&space;-&space;y_{n}*z_{n})}" title="{\color{Orange} L(w,b) = max(0,1 - y_{n}*z_{n})}" /></a>
+    - Tuy nhiên nếu không có điều kiện dẫn đến tìm nghiệm nó sẽ không ổn định và có thể lớn vì vậy chúng ta thêm yếu tố L2-regularization
+    - Công thức tổng quát: <a href="https://www.codecogs.com/eqnedit.php?latex={\color{Orange}&space;J(w,b)&space;=&space;L(w,b)&space;&plus;&space;\lambda&space;R(w,b)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?{\color{Orange}&space;J(w,b)&space;=&space;L(w,b)&space;&plus;&space;\lambda&space;R(w,b)}" title="{\color{Orange} J(w,b) = L(w,b) + \lambda R(w,b)}" /></a>
+    - Nhớ rằng <a href="https://www.codecogs.com/eqnedit.php?latex={\color{Orange}&space;J(w,b)&space;=&space;L(w,b)&space;&plus;&space;\lambda&space;R(w,b)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?{\color{Orange}&space;J(w,b)&space;=&space;L(w,b)&space;&plus;&space;\lambda&space;R(w,b)}" title="{\color{Orange} J(w,b) = L(w,b) + \lambda R(w,b)}" /></a> là một hàm tuyến tính theo w,b vì vậy là 1 hàm lồi => Hàm loss hinge cũng là 1 hàm lồi và Hàm norm cũng là 1 hàm lồi
 
+- Regression
+  - Là một thuật toán supervised learning được sử dụng để dự đoán các giá trị rời rạc, SVR nó cũng giống giống SVMs. Ý tưởng cơ bản là tìm đường tốt nhất, đường tốt nhất là một mặt phẳng có số điểm tối đa.
+  - Không giống các regression model là cố gắng tối ưu chi phí lỗi giữa giá trị thực và giá trị dự đoán, còn SVR là cố gắng tối ưu đường tốt nhất trong 1 giá trị ngưỡng, giá trị ngưỡng ở đây chỉ là khoảng cách giữa siêu mặt phẳng và biên. 
+  - Với những tập dữ liệu lớn, thường Linear SVR, SDG Regression được sử dụng, Linear SVR cung cấp tính toán nhanh hơn chỉ xét phương diện thay đổi kernel trong SVR
+  - Ưu điểm: Thuật toán SVR ít khi sử dụng
+    -  Mạnh mẽ với các giá trị outlier
+    -  Dễ nhàng triển khai
+    -  Mô hình quyết định có thể cập nhật dễ dàng
+    -  Khả năng khái quát tuyệt vời và cho độ chính xác cao
+  - Nhược điểm:
+    -  Không phù hợp với những tập dataset lớn
+    -  Nếu số lượng đặc trưng của điểm dữ liệu vượt quá số lượng mẫu đào tạo, SVM sẽ hoạt động kém
+    -  Mô hình quyết định sẽ hoạt động tốt nếu có nhiều nhiễu
 ### DECISION TREE
 ### RANDOMFOREST
