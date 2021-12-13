@@ -115,6 +115,30 @@ bước tính đạo hàm (1)
   - Dùng một phần dữ liệu trong training set cho mỗi lần thực hiện
 bước tính đạo hàm. (Khoảng từ 1 - n)
 
+#### Loss function
+- Regression Losses
+
+  ![image](https://user-images.githubusercontent.com/72034584/145739806-ff8c7271-8d3f-43f8-aaa2-0d6d7241d526.png)
+  
+  - Mean square error: Là một phép đo trung bình phương giữa giá trị dự đoán và giá trị thực tế. Nó chỉ quan tâm đến mức độ lỗi trung bình bất kể hướng của chúng. Thêm vào đó MSE giúp tính toán hệ số dốc hiểu quả hơn. Kết quả luôn dương, bình phương có nghĩa là những sai lầm lớn dẫn đến nhiều lỗi hơn sai lầm nhỏ, có nghĩa là mô hình bị phạt nặng nếu mắc sai lầm lớn.
+    - Ưu điểm: MSE rất tốt trong việc đảm bảo model được học không dự đoán outlier với chi phí lớn. vì ta đặt trọng số lớn vào các giá trị outlier để giảm chi phí xuống
+    - Nhược điểm: Nếu model chúng ta đưa ra dự đoán rất tế thì phần bình phương chi phí lỗi sẽ phóng đại lên,nhạy cảm outlier,tuy nhiên trong thực tế chúng ta không quan tâm mấy đến outlier mà hướng tới một mô hình toàn diện hoạt động đủ tốt với đa số
+   
+  ![image](https://user-images.githubusercontent.com/72034584/145741309-a1c4b571-f071-41b0-bfd3-98da6c0afcc9.png)
+
+  - Mean absolute error: Đo lường trung bình tổng chêch lệch tuyệt đối giữa giá trị dự đoán và giá trị thực tế, cũng giống như MSE, nó đo độ lớn lớn không cần xem xét hướng. MAE phức tạp hơn cần lập trình tuyến tính thì mới dễ dàng tìm được độ dốc, và MAE mạnh mẽ với các điểm outlier vì nó không bình phương. 
+    - Ưu điểm: Chúng ta lấy giá trị tuyết đối, tất cả sai số sẽ được tính theo 1 thang đo tuyến tính, do đó không giống như MSE, không đặt quá nhiều trọng số vào outlier để giảm thang đó chung
+    - Nhược điểm: Nếu chúng ta quan tâm tới các giá trị outlier thì MAE sẽ không hiệu quả. Nhưng khi các điểm ngoại lai cực hiếm gặp (như trong đường cong hình chuông), độ đo RMSE lại tốt hơn và được sử dụng phổ biến hơn.
+
+  - Root mean square error: Nó cũng giống như các hàm loss MSE, tính toán thì căn bậc 2 của bình phương trung bình giữa giá trị thực tế và giá trị dự đoán. **Khi đánh giá mức độ phù hợp của 1 mô hình, chúng ta thường sử dụng RMSE bởi vì nó đo lường các đơn vị trong giống biến mục tiêu, MSE thì đo bằng đơn vị bình phương của biến mục tiêu.** 
+[Tham khao](https://www.statology.org/mse-vs-rmse/)     
+- Classification Losses
+     
+  ![image](https://user-images.githubusercontent.com/72034584/145745219-eb189a67-4f7e-4bd0-a013-67bf6db7914e.png)
+
+  - Hinge Loss: được dùng để phân loại maximum-margin, đáng chú ý nhất là svm, là 1 hàm liên tục có đạo hàm mọi điểm trừ điểm có hoành độ bằng 1 và hàm lồi
+  - Cross Entropy error: Cross Entropy là độ đo giữa hai phân bốp và q để đo lượng trung bình thông tin khi dùng mã hóa thông tin của phân bố q thay cho mã hóa thông tin phân bố p.
+
 #### Bias and Variance
 - Bias: nghĩa là độ lệch, biểu thị sự chênh lệch giữa giá trị trung bình mà mô hình dự đoán và giá trị
 thực tế của dữ liệu
