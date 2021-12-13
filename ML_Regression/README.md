@@ -68,5 +68,16 @@
     -  Không phù hợp với những tập dataset lớn
     -  Nếu số lượng đặc trưng của điểm dữ liệu vượt quá số lượng mẫu đào tạo, SVM sẽ hoạt động kém
     -  Mô hình quyết định sẽ hoạt động tốt nếu có nhiều nhiễu
+- Kernel SVM:
+  - Những bài toán về dữ liệu phi tuyến, không thể phân tách tuyến tính ta có thể tìm một phép biến đổi dữ liệu từ không gian này sang không gian khác và dữ liệu trở nên phân tách tuyến tính hoặc gần với phân tách tuyến tính. Hoặc có thể nói là tìm một hàm số biến đổi x từ không gian đặc trưng ban đầu thành dữ liệu trong không gian mới bằng 1 hàm f(x). Tuy nhiên trong thực tế, việc tạo dữ liệu với không gian chiều cao hơn ban đầu hoặc có thể hữu hạn, nếu chúng ta tính toán trực tiếp thì gặp rất nhiều khó khăn và tốn bộ nhớ. Có một cách tiếp cận khác đó là tính toán dựa trên kernel mô tả quan sát giữa 2 điểm bất kỳ trong không gian mới. 
+  - Chúng ta cũng có thể thấy Kernel có chức năng tương tự như activation trong nerural network
+  - Chúng ta không cần tính trực tiếp f(x) mà chỉ cần xác định hàm này: ![CodeCogsEqn](https://user-images.githubusercontent.com/72034584/145822084-a4f5f888-42ca-4c2c-828e-241aa5dc6c94.gif) kỹ thuật này gọi kernel trick. Thay vì tính trực tiếp tọa độ trên không gian mới, ta đi tính tích vô hướng của 2 điểm trong khoogn gian mới.
+  - Một số hàm kernel thông dụng: 
+    - Linear
+    - Polynomial
+    - RBF hay Gaussian kernel
+    - Sigmoid
+    
+    ![bangKernel png](https://user-images.githubusercontent.com/72034584/145823724-46ad4cbb-7695-44dd-af39-000a774b885a.jpg)
 ### DECISION TREE
 ### RANDOMFOREST
