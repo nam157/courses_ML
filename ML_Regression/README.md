@@ -54,6 +54,7 @@
     - Tuy nhiên nếu không có điều kiện dẫn đến tìm nghiệm nó sẽ không ổn định và có thể lớn vì vậy chúng ta thêm yếu tố L2-regularization
     - Công thức tổng quát: <a href="https://www.codecogs.com/eqnedit.php?latex={\color{Orange}&space;J(w,b)&space;=&space;L(w,b)&space;&plus;&space;\lambda&space;R(w,b)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?{\color{Orange}&space;J(w,b)&space;=&space;L(w,b)&space;&plus;&space;\lambda&space;R(w,b)}" title="{\color{Orange} J(w,b) = L(w,b) + \lambda R(w,b)}" /></a>
     - Nhớ rằng <a href="https://www.codecogs.com/eqnedit.php?latex={\color{Magenta}&space;1&space;-&space;y_{n}(w^{T}X_{n}&space;&plus;&space;b)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?{\color{Magenta}&space;1&space;-&space;y_{n}(w^{T}X_{n}&space;&plus;&space;b)}" title="{\color{Magenta} 1 - y_{n}(w^{T}X_{n} + b)}" /></a> là một hàm tuyến tính theo w,b vì vậy là 1 hàm lồi => Hàm loss hinge cũng là 1 hàm lồi và Hàm norm cũng là 1 hàm lồi
+    - Tham số điều chỉnh C: C chính là tham số điều chỉnh sự hy sinh trong phân loại biên mềm, C cao thì biên nó sẽ nhỏ lại tức sẽ ko có điểm nào hy sinh bài toán trở về phân loại biên cứng còn C nhỏ biên nó sẽ rộng ra. Việc hy sinh cao hay thấp không ảnh hưởng tới hàm mục tiêu.
 
 - Regression
   - Là một thuật toán supervised learning được sử dụng để dự đoán các giá trị rời rạc, SVR nó cũng giống giống SVMs. Ý tưởng cơ bản là tìm đường tốt nhất, đường tốt nhất là một mặt phẳng có số điểm tối đa.
@@ -77,7 +78,7 @@
     - Polynomial
     - RBF hay Gaussian kernel
     - Sigmoid
-    
+  - Tham số điều chỉnh gamma và C: Gamma tăng thì đường phân tách nhỏ lại và ngược lại 
     ![bangKernel png](https://user-images.githubusercontent.com/72034584/145823724-46ad4cbb-7695-44dd-af39-000a774b885a.jpg)
 ### DECISION TREE
 ### RANDOMFOREST
