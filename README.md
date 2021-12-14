@@ -28,6 +28,10 @@
 - **Clustering**: nhiệm vụ là chia dữ liệu vào cũng 1 nhóm, và các điểm trong nhóm đó giống nhau và khác với điểm dữ liệu trong nhóm khác.Về cơ bản là nó là tập hợp các đối tượng trên cơ sở giống nhau và không giống nhau giữa chúng
 - **Auto Encoder Decoder**: Autoencoder là một mô hình mạng nơ-ron có thể được sử dụng để học cách biểu diễn dữ liệu thô được nén. Một bộ Autoencoder có 2 phần đó là encoder và decoder sub-models. Encoder cố gằng nén đầu vào và Decoder cố gắng tái tạo đầu vào.[Autoencoder](https://machinelearningmastery.com/autoencoder-for-classification/)
 
+
+#### Học out-of-score
+- Các thuật toán học trực tuyến có thể huấn luyện các hệ thống trên tập dữ liệu khổng lồ mà không thể chứa hết trong bộ nhớ chính 
+
 #### Train set/ validation set/ test set
 - **Train set**: là tập dữ liệu để chạy thuật toán
 - **Validation set**: Là tập dữ liệu được dùng để hiệu chỉnh các tham số, lựa chọnđặc trưng và quyết định các thay đổi liên quan đến thuật toán học. Đôi khi, nócòn được gọi là tập kiểm định chéo.
