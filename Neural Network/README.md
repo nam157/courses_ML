@@ -28,10 +28,14 @@
   -   g(z) = np.maximum(0,z)
   -   g(z)' = { 0 if z < 0 
                1 if z > 0}
+               
 **Tính toán GD**
+
 - Lan truyền tiến
 - Lan truyền ngược
+
 **Khởi tạo trọng số**
+
 - Trong mạng nơ-ron , chúng ta cần khởi tạo trọng số ngẫu nhiên, nếu chúng ta khởi tạo trọng số bằng 0 thì quá trình training nó sẽ không hoạt động bởi vì tất cả đơn vị ẩn giống hệt nhau, chính xác là tính toán các hàm như nhau, và tất cả đơn vị ẩn cập nhật như nhau ở từng lần lặp Gradient descent
 - Tuy nhiên khởi tạo trọng số ngẫu nhiên quá lớn hoặc quá nhỏ thì ảnh hướng rất lớn tới vấn đế training và vấn vanishin/ exploding gradient thường thì khởi tạo trọng số theo công thứ He Initialization / Xavier Initialization 
 - Khởi tạo được chọn tốt có thể: Tăng tốc độ hội tụ của gradient descent và Tăng tỷ lệ hội tụ gradient descent thành lỗi huấn luyện thấp hơn (và tổng quát hóa)
