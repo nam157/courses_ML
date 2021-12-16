@@ -37,7 +37,7 @@
 ### SUPPORT VECTOR MACHINE
 - Classification
 
-![image](https://user-images.githubusercontent.com/72034584/145607317-2b5444c7-6c2b-43f8-9373-f5ff89e67bf9.png)
+   ![image](https://user-images.githubusercontent.com/72034584/146286777-17eb6122-9fdc-4c33-8a41-0bdf1a11f1de.png)
 
   - Tìm một mặt siêu mặt phẳng chia cắt hay phân tách ra 2 lớp hay nhiều lớp
   - Cần tìm khoảng cách ngắn nhất từ điểm gần nhất mỗi lớp (Support vector) tới mặt phân chia là như nhau, khoảng cách này đường gọi biên/lề (margin)
@@ -59,6 +59,9 @@
     - Tham số điều chỉnh C: C chính là tham số điều chỉnh sự hy sinh trong phân loại biên mềm, C cao thì biên nó sẽ nhỏ lại tức sẽ ko có điểm nào hy sinh bài toán trở về phân loại biên cứng còn C nhỏ biên nó sẽ rộng ra. Việc hy sinh cao hay thấp không ảnh hưởng tới hàm mục tiêu.
 
 - Regression
+
+ ![image](https://user-images.githubusercontent.com/72034584/145607317-2b5444c7-6c2b-43f8-9373-f5ff89e67bf9.png)
+ 
   - Là một thuật toán supervised learning được sử dụng để dự đoán các giá trị rời rạc, SVR nó cũng giống giống SVMs. Ý tưởng cơ bản là tìm đường tốt nhất, đường tốt nhất là một mặt phẳng có số điểm tối đa.
   - Không giống các regression model là cố gắng tối ưu chi phí lỗi giữa giá trị thực và giá trị dự đoán, còn SVR là cố gắng tối ưu đường tốt nhất trong 1 giá trị ngưỡng, giá trị ngưỡng ở đây chỉ là khoảng cách giữa siêu mặt phẳng và biên. 
   - Với những tập dữ liệu lớn, thường Linear SVR, SDG Regression được sử dụng, Linear SVR cung cấp tính toán nhanh hơn chỉ xét phương diện thay đổi kernel trong SVR
@@ -82,5 +85,45 @@
     - Sigmoid
   - Tham số điều chỉnh gamma và C: Gamma tăng thì đường phân tách nhỏ lại và ngược lại 
     ![bangKernel png](https://user-images.githubusercontent.com/72034584/145823724-46ad4cbb-7695-44dd-af39-000a774b885a.jpg)
+    
 ### DECISION TREE
+- Decision tree là 1 thuật toán thuộc nhóm supervised learing, thuật toán này có thể sử dụng trong 2 bài toán là classification và regression
+- Việc xây dựng thuật toán dự trên tập dữ liệu huấn luyện cho trước là việc đi xác định các câu hỏi và thứ tự của chúng.
+- Điểm đặc biệt đó là thuật toán có thể làm việc với biến categorical thường rời rạc không thứ tự. Decision tree cũng làm việc với dữ liệu có vector đặc trưng bao gồm cả 2 thuộc tính categorical và numberic. Dữ liệu cũng ko cần chuẩn hóa dữ liệu khi đưa vào huấn luyện
+- Có 2 thuật toán phổ biển để triển khai thuật toán: CART (Thuật toán tham lam), ID3
+- Thuật toán CART: 
+  - Step 1: Tạo 1 cây rỗng  nhị phân
+  - Step 2: Lựa chọn đặc trưng để chia các nhóm nhỏ
+  - Step 3: Nếu có câu hỏi nào nữa thì đưa ra dự đoán
+  - Step 4: Đệ quy lại và chia tiếp step 2
+  => Từ thuật toán CART ta thấy có 2 vấn đề cần giải quyết đó: Lựa chọn đặc trưng, Dừng đệ quy
+  
+- Mô hình cây và mô hình tuyến tính
+  -  Nếu mối quan hệ giữa biến độc lập và phụ thuộc bởi mô hình tuyến tỉnh xấp xỉ tốt thì mô hình tuyến tính được sử dụng hơn là mô hình cây
+  -  Nếu dữ liệu phi tuyến tính và mối quan hệ phức tạp giữa biến độc lập và phụ thuộc, mô hình cây sẽ hoạt động tốt hơn 
+  -  Nếu cần xây dựng 1 mô hình để cho mọi người dễ hiểu thì model cây luôn luôn là tốt nhất
+- **Classification**
+  - Dựa trên thuật toán CART thì classification cũng được xây dựng như vậy tuy nhiên, cách giải quyết vấn đề để lựa chọn 1 đặc trưng phù hợp để chia thì nó sẽ dựa chí phí phân loại lỗi (hay có thể gọi độ hỗ tạp của các lớp GINI) và dừng đệ quy khi đạt giới hạn yêu cầu (max_depth) hoặc là không thể chia thêm được nữa
+  - Để triển khai tính toán chi phí classification error và chi phí lỗi dựa trên độ thuật khiết (Gini hay entropy): 
+    - Cho 1 tập dataset
+    - Mỗi đặc trưng h(x):
+      - Chia dữ liệu theo từng đặc trưng h(x_i)
+      - Tính toán chí phí lỗi được chia
+    - Chọn đặc trưng với chi phí lỗi thấp nhất   
+  - VD: ![image](https://user-images.githubusercontent.com/72034584/146293573-64d121e8-7424-4055-9ec6-ea5b39769591.png)
+  - Nó sẽ tính từ nút gốc đi rồi tính các nút trung gian, chi phí lỗi của đặc trưng được chia đó nhỏ nhất thì chọn đặc trưng đó
+  - Đầu ra của bài toán sẽ là nút của lớp tương ứng
+  - Cây quyết định dễ bị overfit, bởi vì overfit xảy ra khi bạn thiết kế cây quá hoản hảo khớp với dữ liệu traning, thiết kế cây hoản hảo là bạn tăng chiều sâu cây lên làm cho mô hình học quá các chi tiết. 
+  - Câu hỏi đặt ra tại sao khi tăng chiều sâu (depth) thì training error lại giảm: Chúng ta sẽ quay về vấn đề lựa chọn đặc trưng để chia.
+  - Để tránh vấn đề overfit thì chúng cần đề cập vấn đề cắt tỉa cây.
+  - Một đề khá hay đó là: Cây quyết định không đặt giả định về dữ liệu huấn luyện (ngược lại với các mô hình tuyến tính). Nếu ko có ràng buộc thì thuật toán sẽ thích ứng với dữ liệu quá mức. Mô hình như này thường đường gọi là mô hình phi tham số, không phải là không có tham số mà nó số lượng tham số ko tham gia quyết định trước khi huấn luyện mà để mô hình khớp dữ liệu 1 các tự do. Để tránh vấn overfit ta cần đặt ràng buộc thì việc này như chúng ta đã biết đó là tiêu chuẩn
+  - Total cost = Classification error  + lambda * num-leaf-node
+  
+  - Dừng hồi quy cũng rất quan trọng đến vấn đề hiệu suất mô hình chúng ta sẽ nghiên cứu về vấn đề cắt tỉa cây (Pruning) để tăng hiệu suất
+  - Độ phức tạp của cây thì tùy thuộc vòng vấn đề bạn số cây bạn chia
+  - Phương pháp cắt tỉa cây đơn giản và nhanh chóng làm việc trên mỗi nút lá và tính toán và đánh giá hiệu suất cắt bỏ chúng bằng cách sử dụng bộ thử nghiệm giữ lại 
+
+- **Regression**
+  - Dựa trên thuật toán CART thì regression thì nó cũng hoạt động như classification tuy nhiên để chọn đặc trưng phân tách thì nó không tính độ Gini như phân loại mà nó tính tổng MSE và chọn đặc trưng nó có MSE nhỏ nhất. Và dừng hồi quy nó cũng tương tự phân loại
+  - Đầu ra sẽ là 1 giá trị 
 ### RANDOMFOREST
