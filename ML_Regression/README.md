@@ -97,6 +97,14 @@
   - Step 3: Nếu có câu hỏi nào nữa thì đưa ra dự đoán
   - Step 4: Đệ quy lại và chia tiếp step 2
   => Từ thuật toán CART ta thấy có 2 vấn đề cần giải quyết đó: Lựa chọn đặc trưng, Dừng đệ quy
+
+- Thuật toán ID3: Chỉ sử dụng để phân loại mà các thuộc tính ở categorical
+  -  Nó cũng giống thuật toán CART, nó cũng tìm thuộc tính tốt nhất ở mỗi bước để chia. Để tìm thuộc tính tốt nhất thì nó đánh giá qua hàm entropy và chọn giá trị nhỏ tương ứng với thuộc tính. 
+  -  Xây dựng các nút trong mô hình thì dựa trên entropy và information gain
+  -  Hàm entropy tại mỗi node được tính theo công thức: ![image](https://user-images.githubusercontent.com/72034584/146355535-b6cef151-1064-45ae-a316-91669cdf1089.png)
+  -  Gỉa sử ta chọn thuộc tính x, dựa trên x, các điểm dữ liệu trong S chia thành K node con S_1,S_2,...,S_k với số điểm trong mỗi child node m_1,m_2,...,m_k. ![image](https://user-images.githubusercontent.com/72034584/146356156-bfa1161e-3d7c-41c8-be08-44762eaaa3ad.png)
+  -  Information Gain được tính theo công thức: ![image](https://user-images.githubusercontent.com/72034584/146356229-849f9be2-543f-44a7-9655-32e30853c3d1.png)
+
   
 - Mô hình cây và mô hình tuyến tính
   -  Nếu mối quan hệ giữa biến độc lập và phụ thuộc bởi mô hình tuyến tỉnh xấp xỉ tốt thì mô hình tuyến tính được sử dụng hơn là mô hình cây
