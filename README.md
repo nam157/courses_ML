@@ -29,6 +29,15 @@
 - **Auto Encoder Decoder**: Autoencoder là một mô hình mạng nơ-ron có thể được sử dụng để học cách biểu diễn dữ liệu thô được nén. Một bộ Autoencoder có 2 phần đó là encoder và decoder sub-models. Encoder cố gằng nén đầu vào và Decoder cố gắng tái tạo đầu vào.[Autoencoder](https://machinelearningmastery.com/autoencoder-for-classification/)
 
 
+#### Clustering and Classification
+
+![Clustering clasification-Animales](https://user-images.githubusercontent.com/72034584/146697394-0a602563-5e98-46ac-9a08-0fd9867b2386.gif)
+
+- Clustering and classification là 2 phương thức xác định mẫu được sử dụng trong machine learing. Mặc dù 2 kĩ thuật này nó khá giống nhau tùy nhiên sụ khác nhau nó ở thực tế.
+- Classification là nó xác định các lớp cho trước trong đối tượng được gán
+- Clustering là xác định các điểm tương đồng giữa các đối tượng, nó sẽ nhóm theo các điểm thông thường và khác với các nhóm kia.
+
+
 #### Học out-of-score
 - Các thuật toán học trực tuyến có thể huấn luyện các hệ thống trên tập dữ liệu khổng lồ mà không thể chứa hết trong bộ nhớ chính 
 
