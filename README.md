@@ -37,6 +37,17 @@
 - Classification là nó xác định các lớp cho trước trong đối tượng được gán
 - Clustering là xác định các điểm tương đồng giữa các đối tượng, nó sẽ nhóm theo các điểm thông thường và khác với các nhóm kia.
 
+#### Model-based learning and Instance-based learning
+
+![instance-based](https://user-images.githubusercontent.com/72034584/146703308-b313f3a8-5f29-442d-a9f5-f3e99432ddda.jpg)
+
+- Instance-based learning: Đơn giản là học thuộc lòng các mẫu dữ liệu, và khái quát hóa dữ liệu mới bằng cách tính phép tương đồng để so sánh toàn bộ dữ liệu đã học
+
+![model-based](https://user-images.githubusercontent.com/72034584/146703496-19badabc-75b0-4ba7-aa59-570bfa833bb4.jpg)
+
+- Model-based: Xây dựng một mô hình từ liệu rồi dùng mô hình đó đưa dự đoán
+ 
+
 
 #### Học out-of-score
 - Các thuật toán học trực tuyến có thể huấn luyện các hệ thống trên tập dữ liệu khổng lồ mà không thể chứa hết trong bộ nhớ chính 
