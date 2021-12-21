@@ -135,3 +135,26 @@
   - Dựa trên thuật toán CART thì regression thì nó cũng hoạt động như classification tuy nhiên để chọn đặc trưng phân tách thì nó không tính độ Gini như phân loại mà nó tính tổng MSE và chọn đặc trưng nó có MSE nhỏ nhất. Và dừng hồi quy nó cũng tương tự phân loại
   - Đầu ra sẽ là 1 giá trị 
 ### RANDOMFOREST
+- Trước khi nói đến Randomforest chúng ta cần nói đến Ensemble learing: là kỹ thuật học với nhiều thuật toán kết hợp với nhau hoặc có thể nói là ta có thể đào tào với nhiều thuật toán ML và kết hợp các dự đoán của chúng theo nào đó. Cách tiếp cận như này có xu hướng đưa ra kết quả dự đoán tốt hơn, Mô hình emsemble là sự kết hợp nhiều mô hình cơ bản lại
+- Trong emsemble learning có 3 loại phổ biến: Bootsting, Bagging, Stacking
+- Mô hình randomforest dựa trên mô hình emsemble để xây dựng và đúng là sử kỹ thuật Bagging vì các tính toán chạy song song không có sự tương tác giữa các cây 
+- Random forest là thuật toán thuộc nhóm thuật toán supervised learing, có sử dụng trong 2 bài toán là classification và regression
+- Ý tưởng chung của thuật toán: Là sự kết hợp nhiều cây quyết định (Decision tree), tuy nhiên với mỗi cây quyết định đều có tính ngẫu nhiên sau đó kết quả dự đoán là sự kết hợp của nhiều cây
+- Xây dựng thuật toán trên classification và regression các bước khá giống nhau chỉ khác ở đầu ra một là vote class label và tính trung bình điểm output 
+- **Xây dựng thuật toán Randomforest**
+  - Chúng ta chuẩn bị dữ liệu:  Ta sẽ lấy ngẫu nhiên n dữ liệu từ bộ dữ liệu, kỹ thuật này được gọi là boottrapping. Tức là ta lấy sample từ bộ dữ liệu không vứt nó đi mà vẫn để lại ở dữ liệu ban đầu đến khi chúng ta chia đủ n dữ liệu, n tập dữ liệu được lấy này có thể trùng nhau
+  - VD: ![image](https://user-images.githubusercontent.com/72034584/146940903-84224267-9cd3-4ad4-bad3-890f282dd0c9.png)
+  - Sau khi đủ n dữ liệu thì ta tiếp lấy ngẫu nhiên k thuộc tính (k < n). Dữ liệu mới đủ n dữ liệu đủ k thuộc tính
+  - Dùng thuật toán Decision tree tiếp tục xây dựng
+  - Qúa trình xây dựng thuật toán decision tree dựa trên ngẫu nhiên nên kết quả các cây trong thuật toán Randomforset đều khác nhau.
+  - Kết quả cuối cùng chính là sự kết hợp của tất cả cây quyết định được đào tạo trước đó
+  - Khi xây dựng thuật toán Randomforest chúng ta cần điều chỉnh các tham số sau: 
+    - Số lượng cây quyết định
+    - Số lượng thuộc tính
+    - Chiều sâu tối đa cây
+    - Số phân tử tối thiếu tách cây 
+[Tham Khảo](https://cnvrg.io/random-forest-regression/)
+
+
+
+
