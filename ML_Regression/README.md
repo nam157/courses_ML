@@ -153,6 +153,7 @@
     - Số lượng thuộc tính
     - Chiều sâu tối đa cây
     - Số phân tử tối thiếu tách cây 
+   
 [Tham Khảo](https://cnvrg.io/random-forest-regression/)
 
 
