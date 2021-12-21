@@ -1,3 +1,4 @@
+[THAM KHẢO TOÀN BỘ BÀI GIẢNG(pdf-slides-code)](https://tjmachinelearning.com/schedule/2021#)
 ## Basic knowledge
 #### Probability & Statistics in Machine Learning
 [Probability & Statistical](https://towardsdatascience.com/probability-vs-statistics-for-data-science-and-machine-learning-84f00bf67ce1)
