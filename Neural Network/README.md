@@ -28,17 +28,71 @@
   -   g(z) = np.maximum(0,z)
   -   g(z)' = { 0 if z < 0 
                1 if z > 0}
-               
+ 
+**Tính toán trong mạng neural**
+- ![image](https://user-images.githubusercontent.com/72034584/147097722-2c13a579-6a1c-43c7-aed5-eb0d24529fe7.png)
+- Hình dạng của các biến: nx1 (số lớp ẩn) = 4, nx2 (input) = 3
+  - W1 là trọng số của lớp ẩn thứ 1 có dạng là (nx1,nx2) = (4,3)
+  - b1 có dạng là (nx1,1) = (4,1)
+  - z1 là kết quả của pt: W1 * X1 + b1 có dạng là (4,3)@(1,4) + (4,1) = (nx1,1) = (4,1)
+  - a1 là kết quả của phương trình z1 có dạng là (nx1,1) = (4,1)
+  - W2 là trọng số lớp ẩn thứ 2 có dạng là (1,nx1) = (1,4)
+  - b2 có dạng (1,1)
+  - z2 có dạng là (1,1)
+  - a2 có dạng là (1,1)
+
 **Tính toán GD**
 
-- Lan truyền tiến
-- Lan truyền ngược
+- Lan truyền tiến:     ![feed](https://user-images.githubusercontent.com/72034584/147099578-6f048e90-49ea-4255-9a52-2915b4c28ff7.jpg)
+
+   - Z1 = W1*A0 + B1 (A0 == X)
+   - A1 = sigmoid(Z1)
+   - Z2 = W2*A1 + B2
+   - A2 = sigmoid(Z2)
+- Lan truyền ngược:    ![back](https://user-images.githubusercontent.com/72034584/147099595-2326bf81-c909-4429-a8d3-1cf3df4bdede.jpg)
+
+   - dZ2 = A2 - Y
+   - dW2 =  (dZ2 * A1.T) / m
+   - dB2 = sum(dZ2)/m
+   - dZ1 = (W2.T @ dZ2) @ g'1(Z1)
+   - dW1 = (dZ1 * A0.T) / m
+   - dB1 = sum(dZ1)/m
 
 **Khởi tạo trọng số**
 
 - Trong mạng nơ-ron , chúng ta cần khởi tạo trọng số ngẫu nhiên, nếu chúng ta khởi tạo trọng số bằng 0 thì quá trình training nó sẽ không hoạt động bởi vì tất cả đơn vị ẩn giống hệt nhau, chính xác là tính toán các hàm như nhau, và tất cả đơn vị ẩn cập nhật như nhau ở từng lần lặp Gradient descent
 - Tuy nhiên khởi tạo trọng số ngẫu nhiên quá lớn hoặc quá nhỏ thì ảnh hướng rất lớn tới vấn đế training và vấn vanishin/ exploding gradient thường thì khởi tạo trọng số theo công thứ He Initialization / Xavier Initialization 
 - Khởi tạo được chọn tốt có thể: Tăng tốc độ hội tụ của gradient descent và Tăng tỷ lệ hội tụ gradient descent thành lỗi huấn luyện thấp hơn (và tổng quát hóa)
-### REGULARIZATION 
+
+
+**Deep Neural Network**
+- Mạng shallow neural network là mạng chỉ có 1 hoặc 2 lớp. Mạng DNN là có 3 lớp trở lên.
+- Một số ký hiệu hay sử dung: L biểu thị số lớp trong mạng, n[l] số nơ-ron của 1 lớp cụ thể,g[l] là hàm kích hoạt,a[l] = g[l](z[l]) 
+- Tính toán trong mạng noron ở DNN nó cũng giống ở shallow nhưng chỉ khác là nhiều số lớp ẩn hơn.
+- Kích thước của W là (n[l],n[l-1]), b là (n[l],1), dW có shape tương tự với W, Z[l],A[l],dZ[l],dA[l] (n[l],m)
+- Lan truyền xuôi:
+   - Z[l] = W[l]A[l-1] +b[l]
+   - A[l] = g[l](Z[l])
+   - Output A[l],cache(Z[l])
+- Lan truyền ngược:
+   -  dZ[l]  = dA[l] * g'[l](Z[l])
+   -  dW[l] = (dZ[l]A[l-1].T) / m
+   -  dB[l] = sum(dZ[l]) / m
+   -  dA[l-1] = W[l].T * dZ[l]
+   -  Output dA[l-1],dW[l],dB[l]
+
+- Các tham số cần tối ưu:
+   - Learning rate
+   - Số vòng lặp
+   - Số lớp ẩn L
+   - Số đơn vị ẩn n (số nơ-ron)
+   - Hàm kích hoạt 
+
+### REGULARIZATION
+- Có các phương pháp regularization chính: L1-L2,dropout,early stopping, data augmentation
+- Thêm yếu tố regualarization sẽ giúp mạng của không bị overfitting
+- Chuẩn ma trận L1: ||w|| = sum(|w[i,j]|)
+- Chuẩn ma trận L2: ||w||2 = sum(|w[i,j|^2)
+
 ### TỐI ƯU MÔ HÌNH
 ### HYPERPARAMETER TUNING
