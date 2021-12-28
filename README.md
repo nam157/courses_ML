@@ -1,4 +1,5 @@
 [THAM KHẢO TOÀN BỘ BÀI GIẢNG(pdf-slides-code)](https://tjmachinelearning.com/schedule/2021#)
+[Tham khảo cheat sheets](https://www.theinsaneapp.com/2020/12/machine-learning-and-data-science-cheat-sheets-pdf.html?fbclid=IwAR0MFkBAw2jg1JVABwvhLUQ-IA9hbKaGcfQNcjbJry0rKgEhrZdwU3kB4A8)
 ## Basic knowledge
 #### Probability & Statistics in Machine Learning
 [Probability & Statistical](https://towardsdatascience.com/probability-vs-statistics-for-data-science-and-machine-learning-84f00bf67ce1)
@@ -169,7 +170,7 @@ bước tính đạo hàm. (Khoảng từ 1 - n)
 thực tế của dữ liệu
 - Variance: nghĩa là phương sai, biểu thị độ phân tán của các giá trị mà mô hình dự đoán so với giá
 trị thực tế.
-      ![1_Y-yJiR0FzMgchPA-Fm5c1Q](https://user-images.githubusercontent.com/72034584/143260447-50f2e59e-892c-415f-8267-56485d1b0d22.jpeg)
+      ![image](https://user-images.githubusercontent.com/72034584/147583387-c3264c78-bd35-4189-bc33-56fc0ab5646d.png)
 
 Giá trị thật dữ liệu (ground truth) ở giữa tâm các đường tròn. Các dấu X là các giá trị dự đoán. Ta
 thấy nếu high bias thì giá trị dự đoán rất xa tâm. Tuy nhiên nếu high variance thì các giá trị dự đoán
