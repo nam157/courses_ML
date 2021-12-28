@@ -1,4 +1,5 @@
 [THAM KHẢO TOÀN BỘ BÀI GIẢNG(pdf-slides-code)](https://tjmachinelearning.com/schedule/2021#)
+
 [Tham khảo cheat sheets](https://www.theinsaneapp.com/2020/12/machine-learning-and-data-science-cheat-sheets-pdf.html?fbclid=IwAR0MFkBAw2jg1JVABwvhLUQ-IA9hbKaGcfQNcjbJry0rKgEhrZdwU3kB4A8)
 ## Basic knowledge
 #### Probability & Statistics in Machine Learning
