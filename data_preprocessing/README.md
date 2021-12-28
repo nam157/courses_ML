@@ -259,6 +259,7 @@ Một số giả định của mô hình hồi quy tuyến tính:
 
 
 
+=> [Tham khảo source code](https://github.com/solegalli/feature-selection-for-machine-learning)
 
 
 
