@@ -9,6 +9,7 @@
   - Cập nhật lại các điểm dữ liệu rồi (tính toán khoảng cách)
   - Lặp lại khi nào các điểm dữ liệu không thay đổi
 - The distance measure is the squared Euclidean distance: 
+  
   ![sss](https://user-images.githubusercontent.com/72034584/147743163-da088895-ecec-4509-b152-1ff314320eaf.jpg)
 
 - Một số thuật toán cải tiển: K-mean++,eblow
